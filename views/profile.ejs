@@ -41,12 +41,12 @@
               <td> <%= gifts[i].gift %> </td>
               <td> <%= gifts[i].link %> </td>
               <td> <%= gifts[i].note %> </td>
-              <td> 
+              <td>
                 <form action="/gift/claimGift/<%= gifts[i].id %>?_method=PUT" method="POST">
                   <button type="submit" class="btn btn-primary">Claim Gift!</button>
                 </form>
               </td>
-              <td data-id=" <%= gifts[i]._id%>"> <%= gifts[i].claimedBy %> </td>
+              <td data-id=" <%= gifts[i]._id%>"> <%= gifts[i].claimedBy.userName %> </td>
             </tr>
           <% } %>
         </table>
