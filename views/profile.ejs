@@ -1,41 +1,58 @@
 <%- include('partials/header') -%>
 <div class="container">
   <div class="row mt-5">
-      <div class="col-6">
+      <div class="col-12">
           <div>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
           <div class="mt-5">
-            <h2>Add a post</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+            <h2>Add a gift</h2>
+            <form action="/gift/addGift" method="POST">
               <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
+                  <label for="gift" class="form-label">Gift</label>
+                  <input type="text" class="form-control" id="gift" name="gift">
               </div>
               <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
+                <label for="link" class="form-label">Link</label>
+                <input class="form-control" id="link" name="link"></input>
               </div>
               <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
+                <label for="note" class="form-label">Notes</label>
+                <textarea class="form-control" id="note" name="note"></textarea>
               </div>
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
           </div>
       </div>
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
+      <div class="mt-5">
+        <h2>Wishlist</h2>
+        <table class="col-12">
+          <tr class="col-12 justify-content-between mt-5">
+            <th>Gift</th>
+            <th>Link</th>
+            <th>Note</th>
+            <th>Claimed?</th>
+            <th>Claimed By</th>
+          </tr>
+          <% for(var i=0; i<gifts.length; i++) {%>
+            <tr>
+              <td> <%= gifts[i].gift %> </td>
+              <td> <%= gifts[i].link %> </td>
+              <td> <%= gifts[i].note %> </td>
+              <td> 
+                <form action="/gift/claimGift/<%= gifts[i].id %>?_method=PUT" method="POST">
+                  <button type="submit" class="btn btn-primary">Claim Gift!</button>
+                </form>
+              </td>
+              <td data-id=" <%= gifts[i]._id%>"> <%= gifts[i].claimedBy %> </td>
+            </tr>
+          <% } %>
+        </table>
+      </div>
+
+      <div class="col-12">
         <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
         </div>  
