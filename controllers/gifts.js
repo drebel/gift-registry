@@ -4,7 +4,7 @@ module.exports = {
   getHome: async (req, res) => {
     try {
       const gifts = await Gift.find({ user: req.user.id }).populate('claimedBy', 'userName');
-      res.render("profile.ejs", { gifts: gifts, user: req.user });
+      res.render("home.ejs", { gifts: gifts, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -16,7 +16,7 @@ module.exports = {
         {claimedBy: req.user.id, claimed: true},
         {new: true}
       )
-      res.redirect("/profile")  
+      res.redirect("/home")  
     } catch {
       console.log(err)
     }
@@ -31,7 +31,7 @@ module.exports = {
       claimed: false
       });
       console.log("Gift has been added!");
-      res.redirect("/profile");
+      res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
@@ -43,9 +43,9 @@ module.exports = {
       // Delete gift from db
       await Gift.remove({ _id: req.params.id });
       console.log("Deleted Gift");
-      res.redirect("/profile");
+      res.redirect("/home");
     } catch (err) {
-      res.redirect("/profile");
+      res.redirect("/home");
     }
   },
 };
