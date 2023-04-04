@@ -15,4 +15,4 @@ const FriendListSchema = new mongoose.Schema({
   ]
 });
 
-module.exports = mongoose.model("FriendList", FriendlistSchema);
+module.exports = mongoose.model("FriendList", FriendListSchema);

@@ -1,7 +1,7 @@
 const Gift = require("../models/Gift");
 
 module.exports = {
-  getProfile: async (req, res) => {
+  getHome: async (req, res) => {
     try {
       const gifts = await Gift.find({ user: req.user.id }).populate('claimedBy', 'userName');
       res.render("profile.ejs", { gifts: gifts, user: req.user });
