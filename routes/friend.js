@@ -5,8 +5,8 @@ const friendsController = require("../controllers/friends");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Post Routes - simplified for now
-router.post("/addFriend/:id", friendsController.addFriend);
+router.put("/addFriend", friendsController.addFriend);
 
-router.delete("/deleteFriend/:id", friendsController.deleteFriend);
+router.put("/deleteFriend/:id", friendsController.deleteFriend);
 
 module.exports = router;

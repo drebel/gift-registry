@@ -63,7 +63,13 @@
                   <button type="submit" class="btn btn-primary">Claim Gift!</button>
                 </form>
               </td>
-              <td data-id=" <%= gifts[i]._id%>"> <%= gifts[i].claimedBy.userName %> </td>
+              <td data-id=" <%= gifts[i]._id%>"> 
+                <% if(gifts[i].claimed) { %>
+                <%= gifts[i].claimedBy.userName %> 
+                <% }else{%> 
+                  Not Claimed 
+                  <% } %>
+              </td>
             </tr>
           <% } %>
         </table>
