@@ -9,6 +9,8 @@ router.post("/addGift", giftsController.addGift);
 
 router.put("/claimGift/:id", giftsController.claimGift)
 
+router.put("/unclaimGift/:id", giftsController.unclaimGift)
+
 router.delete("/deletePost/:id", giftsController.deleteGift);
 
 module.exports = router;
