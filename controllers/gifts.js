@@ -1,10 +1,13 @@
 const Gift = require("../models/Gift");
+const FriendList = require("../models/FriendList")
 
 module.exports = {
   getHome: async (req, res) => {
     try {
       const gifts = await Gift.find({ user: req.user.id }).populate('claimedBy', 'userName');
-      res.render("home.ejs", { gifts: gifts, user: req.user });
+      const friendList = await FriendList.findOne({ user: req.user.id}).populate('friends')
+      console.log(friendList.friends)
+      res.render("home.ejs", { gifts: gifts, user: req.user, friendList: friendList });
     } catch (err) {
       console.log(err);
     }
@@ -14,6 +17,18 @@ module.exports = {
       await Gift.findOneAndUpdate(
         {_id: req.params.id},
         {claimedBy: req.user.id, claimed: true},
+        {new: true}
+      )
+      res.redirect("/home")  
+    } catch {
+      console.log(err)
+    }
+  },
+  unclaimGift: async (req, res) => {
+    try {
+      await Gift.findOneAndUpdate(
+        {_id: req.params.id},
+        {claimedBy: null, claimed: false},
         {new: true}
       )
       res.redirect("/home")  
@@ -45,7 +60,7 @@ module.exports = {
       console.log("Deleted Gift");
       res.redirect("/home");
     } catch (err) {
-      res.redirect("/home");
+      console.log(err);
     }
   },
 };
