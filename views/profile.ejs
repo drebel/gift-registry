@@ -1,0 +1,46 @@
+<%- include('partials/header') -%>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2>Wishlist</h2>
+            <table class="col-12 table">
+                <tr class="col-12 justify-content-center ">
+                    <th>Gift</th>
+                    <th class="text-center">Note</th>
+                    <th class="">Claimed?</th>
+                    <th>Claimed By</th>
+                </tr>
+                <% for(let i=0; i<gifts.length; i++) {%>
+                <tr class="col-12">
+                    <td class="align-text-center">
+                        <a href="<%= gifts[i].link %>"> <%= gifts[i].gift %></a>
+                    </td>
+                    <td class="align-text-center"> <%= gifts[i].note %> </td>
+                    <td class="align-text-center">
+                    <% if(!gifts[i].claimedBy){ %>
+                        <form action="/gift/claimGift/<%= gifts[i].id %>?_method=PUT" method="POST">
+                            <button type="submit" class="btn btn-primary">Claim!</button>
+                        </form>
+                        <% }else if(gifts[i].claimedBy.id == user.id){ %>
+                        <form action="/gift/unclaimGift/<%= gifts[i].id %>?_method=PUT" method="POST">
+                            <button type="submit" class="btn btn-warning">Unclaim</button>
+                        </form>
+                        <% }else{ %>
+                        <button class="btn btn-secondary">Already Claimed</button>
+                        <% } %>
+                    </td>
+                    <td class="align-text-center" data-id=" <%= gifts[i]._id%>"> 
+                    <% if(gifts[i].claimed) { %>
+                    <%= gifts[i].claimedBy.userName %> 
+                    <% }else{%> 
+                        Not Claimed 
+                        <% } %>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+            
+  <%- include('partials/footer') -%>

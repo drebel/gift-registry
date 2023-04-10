@@ -11,7 +11,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const giftRoutes = require("./routes/gift");
 const friendRoutes = require("./routes/friend");
-const profileRoutes = require("./routes/profile")
+const profileRoutes = require("./routes/profile");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });

@@ -18,7 +18,7 @@ module.exports = {
         {claimedBy: req.user.id, claimed: true},
         {new: true}
       )
-      res.redirect("/home")  
+      res.redirect("back")  
     } catch {
       console.log(err)
     }
@@ -30,7 +30,7 @@ module.exports = {
         {claimedBy: null, claimed: false},
         {new: true}
       )
-      res.redirect("/home")  
+      res.redirect("back")  
     } catch {
       console.log(err)
     }
@@ -45,7 +45,7 @@ module.exports = {
       claimed: false
       });
       console.log("Gift has been added!");
-      res.redirect("/home");
+      res.redirect("back");
     } catch (err) {
       console.log(err);
     }
@@ -57,7 +57,7 @@ module.exports = {
       // Delete gift from db
       await Gift.remove({ _id: req.params.id });
       console.log("Deleted Gift");
-      res.redirect("/home");
+      res.redirect("back");
     } catch (err) {
       console.log(err);
     }
