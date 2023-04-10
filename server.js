@@ -11,6 +11,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const giftRoutes = require("./routes/gift");
 const friendRoutes = require("./routes/friend");
+const profileRoutes = require("./routes/profile")
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -58,6 +59,7 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/gift", giftRoutes);
 app.use("/friend", friendRoutes);
+app.use("/profile", profileRoutes);
 
 //Server Running
 app.listen(process.env.PORT, () => {

@@ -1,12 +1,11 @@
 const Gift = require("../models/Gift");
-const FriendList = require("../models/FriendList")
+const FriendList = require("../models/FriendList");
 
 module.exports = {
   getHome: async (req, res) => {
     try {
       const gifts = await Gift.find({ user: req.user.id }).populate('claimedBy', 'userName');
       const friendList = await FriendList.findOne({ user: req.user.id}).populate('friends')
-      console.log(friendList.friends)
       res.render("home.ejs", { gifts: gifts, user: req.user, friendList: friendList });
     } catch (err) {
       console.log(err);
