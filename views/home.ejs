@@ -46,7 +46,7 @@
         <% for(let i=0; i<gifts.length; i++) {%>
           <tr class="col-12">
             <td class="align-text-center">
-              <a href="<%= gifts[i].link %>"> <%= gifts[i].gift %></a>
+              <a href="<%= gifts[i].link %>" target="_blank"> <%= gifts[i].gift %></a>
             </td>
             <td class="align-text-center"> <%= gifts[i].note %> </td>
             <td class="align-text-center">
@@ -66,9 +66,12 @@
               <% if(gifts[i].claimed) { %>
               <%= gifts[i].claimedBy.userName %> 
               <% }else{%> 
-                Not Claimed 
+                <form action="/gift/deleteGift/<%= gifts[i].id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger">Delete Gift</button>
+                </form> 
                 <% } %>
             </td>
+
           </tr>
         <% } %>
       </table>
