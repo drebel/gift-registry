@@ -35,7 +35,10 @@
 
   <div class="row mt-5">
     <div class="col-12">
-      <h2>Wishlist</h2>
+      <div class="row justify-content-start">
+        <h2 class="col-6">Wishlist</h2>
+        <button class="btn btn-danger col-5" id="toggleBtn">Show Claimed / Deleteable</button>
+      </div>
       <table class="col-12 table">
         <tr class="col-12 justify-content-center ">
           <th>Gift</th>
@@ -59,7 +62,7 @@
                     <button type="submit" class="btn btn-warning">Unclaim</button>
                   </form>
                 <% }else{ %>
-                  <button class="btn btn-secondary">Already Claimed</button>
+                  <button class="btn btn-secondary">Claimed</button>
                 <% } %>
             </td>
             <td class="align-text-center" data-id=" <%= gifts[i]._id%>"> 
@@ -67,7 +70,7 @@
               <%= gifts[i].claimedBy.userName %> 
               <% }else{%> 
                 <form action="/gift/deleteGift/<%= gifts[i].id %>?_method=DELETE" method="POST">
-                  <button type="submit" class="btn btn-danger">Delete Gift</button>
+                  <button type="submit" class="btn btn-danger">Delete</button>
                 </form> 
                 <% } %>
             </td>
