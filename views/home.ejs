@@ -36,15 +36,19 @@
   <div class="row mt-5">
     <div class="col-12">
       <div class="row justify-content-start">
-        <h2 class="col-6">Wishlist</h2>
-        <button class="btn btn-danger col-5" id="toggleBtn">Show Claimed / Deleteable</button>
+        <h2 class="col">Wishlist</h2>
+        <!-- <button class="btn btn-danger col-5" id="toggleBtn">Show Claimed / Deletable</button> -->
+        <div class="form-check form-switch col">
+          <label class="form-check-label" for="toggleBtn">Show Claimed Gifts</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="toggleBtn">
+        </div>
       </div>
       <table class="col-12 table">
         <tr class="col-12 justify-content-center ">
           <th>Gift</th>
           <th class="text-center">Note</th>
-          <th class="">Claimed?</th>
-          <th>Claimed By</th>
+          <th class="toggle d-none">Claimed?</th>
+          <th class="toggle d-none">Claimed By</th>
         </tr>
         <% for(let i=0; i<gifts.length; i++) {%>
           <tr class="col-12">
@@ -52,7 +56,7 @@
               <a href="<%= gifts[i].link %>" target="_blank"> <%= gifts[i].gift %></a>
             </td>
             <td class="align-text-center"> <%= gifts[i].note %> </td>
-            <td class="align-text-center">
+            <td class="align-text-center toggle d-none">
               <% if(!gifts[i].claimedBy){ %>
                 <form action="/gift/claimGift/<%= gifts[i].id %>?_method=PUT" method="POST">
                   <button type="submit" class="btn btn-primary">Claim!</button>
@@ -65,7 +69,7 @@
                   <button class="btn btn-secondary">Claimed</button>
                 <% } %>
             </td>
-            <td class="align-text-center" data-id=" <%= gifts[i]._id%>"> 
+            <td class="align-text-center toggle d-none" data-id=" <%= gifts[i]._id%>"> 
               <% if(gifts[i].claimed) { %>
               <%= gifts[i].claimedBy.userName %> 
               <% }else{%> 
@@ -116,5 +120,7 @@
   </div>
 
 </div>
+<script src="/js/main.js"></script>
+
 <%- include('partials/footer') -%>
 
