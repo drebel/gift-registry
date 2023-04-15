@@ -5,6 +5,6 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //profile Routes
 
-router.get("/:id", profileController.getProfile)
+router.get("/:id", ensureAuth, profileController.getProfile)
 
 module.exports = router
