@@ -9,6 +9,7 @@
             <% if(isFriend){ %>
                 <form class="" action="/friend/deleteFriend/<%= profile._id %>?_method=PUT" method="POST">
                     <button type="submit" class="btn btn-danger">Delete Friend</button>
+                </form>
             <% }else{%>
                 <form class="" action="/friend/addFriend/<%= profile._id %>?_method=PUT" method="POST">
                     <button type="submit" class="btn btn-success">Add Friend</button>
