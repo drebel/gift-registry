@@ -3,17 +3,13 @@
 <div class="container">
   <div class="row mt-2">
     <div class="col">
-      <div>
-        <p><strong>User Name</strong>: <%= user.userName %></p>
-        <p><strong>Email</strong>: <%= user.email %></p>
-        <a href="/logout" class="col-12 btn btn-primary">Logout</a>
-      </div>
+      <span><strong>Signed in as</strong>: <%= user.userName %></span><br>
     </div>
   </div>
 
   <div class="row">
     <div class="col-12">
-      <div class="mt-5">
+      <div class="mt-1">
         <h2>Add a gift</h2>
         <form action="/gift/addGift" method="POST">
           <div class="mb-3">
@@ -34,7 +30,7 @@
     </div>
   </div>
 
-  <div class="row mt-5">
+  <div class="row mt-3">
     <div class="col-12">
       <div class="row align-items-center justify-content-between">
         <h2 class="col">Wishlist</h2>
@@ -85,7 +81,7 @@
     </div>
   </div>
 
-  <div class="row mt-5">
+  <div class="row mt-2">
     <div class="col-12">
       <h2>Friends</h2>
       <table class="col-12 table" id="friendTable">
