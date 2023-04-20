@@ -1,26 +1,16 @@
   
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light bg-light">
       <div class="container">
-        <img src="imgs\icons8-gift-32.png" alt="Gift Logo" class="p-1">
-        <a class="navbar-brand" href="/home">
-          Gift List</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <a href="/home#friendTable">
+          <img src="/imgs/icons8-gift-32.png" alt="Gift Logo" width="30" height="30" class="d-inline-block align-top">
+        </a>
+        <div class="">
           <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#friendTable" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Friends
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+            <li class="nav-item">
+              <a class="nav-link" href="/home#friendTable">Friends</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/profile/<%= user.id %>"><%= user.userName %>'s Profile</a>
@@ -28,11 +18,9 @@
             <li class="nav-item">
               <a class="nav-link" href="/logout">Logout</a>
             </li>
-  
           </ul>
         </div>
       </div>
-      
     </nav>
 
 
