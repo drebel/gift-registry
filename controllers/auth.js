@@ -61,7 +61,7 @@ exports.getSignup = (req, res) => {
   if (req.user) {
     return res.redirect("/home");
   }
-  res.render("signup", {
+  res.render("signup.ejs", {
     title: "Create Account",
   });
 };
