@@ -1,6 +1,16 @@
 <%- include('partials/head') -%>
 <%- include('partials/navbar') -%>
 <div class="container">
+    <% if( user.id == profile._id ){ %>
+        
+    <div class="row mt-5 align-text-center">
+        <div class="d-flex justify-content-center">
+            <h1 class=""><%= profile.userName %></h1>
+        </div>
+        <div class="d-flex justify-content-center">
+            <span>Send the URL of this page to friends</span>
+        </div>
+    <% }else{%>
     <div class="row mt-5 align-text-center">
         <div class="col text-end">
             <h1><%= profile.userName%></h1>
@@ -8,7 +18,7 @@
         <div class="col align-self-center">
             <% if(isFriend){ %>
                 <form class="" action="/friend/deleteFriend/<%= profile._id %>?_method=PUT" method="POST">
-                    <button type="submit" class="btn btn-danger">Delete Friend</button>
+                    <button type="submit" class="btn btn-danger">Unfriend</button>
                 </form>
             <% }else{%>
                 <form class="" action="/friend/addFriend/<%= profile._id %>?_method=PUT" method="POST">
@@ -17,6 +27,7 @@
             <% } %>
         </div>
     </div>
+    <% } %>
 
     <div class="row mt-5">
         <div class="col-12">

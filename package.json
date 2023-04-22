@@ -1,7 +1,7 @@
 {
-  "name": "binary-upload-boom",
+  "name": "gift-list",
   "version": "1.0.0",
-  "description": "100Devs Social Network",
+  "description": "Simple gift registry web app",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
