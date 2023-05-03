@@ -1,7 +1,7 @@
 const FriendList = require("../models/FriendList");
 const Gift = require("../models/Gift");
 const User = require("../models/User");
-//const FreindList = require("../models/FriendList");
+const FreindList = require("../models/FriendList");
 
 module.exports = {
     getProfile: async (req, res) => {
