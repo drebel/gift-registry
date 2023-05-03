@@ -2,6 +2,17 @@ const FriendList = require("../models/FriendList");
 const User = require("../models/User")
 
 module.exports = {
+
+  getFriends: async (req, res) => {
+    try {
+      const friendList = await FriendList.findOne({ user: req.user.id}).populate('friends')
+      res.render("friends.ejs", { user: req.user, friendList: friendList });
+    }catch (err) {
+      console.log(err)
+      res.redirect("back");
+    }
+  },
+
   addFriend: async (req, res) => {
     try {
       const myFriends = await FriendList.findOne({user: req.user.id})

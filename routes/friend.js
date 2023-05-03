@@ -4,7 +4,8 @@ const router = express.Router();
 const friendsController = require("../controllers/friends");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Post Routes - simplified for now
+router.get("/", friendsController.getFriends);
+
 router.put("/addFriend/:id", friendsController.addFriend);
 
 router.put("/deleteFriend/:id", friendsController.deleteFriend);
