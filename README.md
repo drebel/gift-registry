@@ -16,18 +16,18 @@ End users are 18-65+ years olds with various levels of experience using technolo
 
 ## Features
 
--Minimalistic styling and simple interface for varying levels of tech literacy
--User profile creation
--Private friending, only people with your link can add you
--Add friends to your friend list
--Add gifts to your own gift list so others can claim
--Add notes to your gifts to clarify details
--Delete gifts from your own gift list if you change your mind
--Show user if gift is already claimed before deleting
--Hide gift claimed status for user so surprise isnt ruined
--Friend list to easily navigate to friends' pages
--Keep track of friends' birthdays
--Claim and unclaim gifts from friends lists
+    -   Minimalistic styling and simple interface for varying levels of tech literacy
+    -   User profile creation
+    -   Private friending, only people with your link can add you
+    -   Add friends to your friend list
+    -   Add gifts to your own gift list so others can claim
+    -   Add notes to your gifts to clarify details
+    -   Delete gifts from your own gift list if you change your mind
+    -   Show user if gift is already claimed before deleting
+    -   Hide gift claimed status for user so surprise isnt ruined
+    -   Friend list to easily navigate to friends' pages
+    -   Keep track of friends' birthdays
+    -   Claim and unclaim gifts from friends lists
 
 ## How It's Made:
 
@@ -35,10 +35,10 @@ End users are 18-65+ years olds with various levels of experience using technolo
 
 ## Optimizations
 
--Separate gift lists for different holidays/events
--A way to add friends in app
--Pictures on wishlist
--Individual avatars
--Explore/discover page
--Password recovery
--Redirect after signin to previous page
+    - Separate gift lists for different holidays/events
+    - A way to add friends in app
+    - Pictures on wishlist
+    - Individual avatars
+    - Explore/discover page
+    - Password recovery
+    - Redirect after signin to previous page
